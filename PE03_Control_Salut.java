@@ -20,7 +20,25 @@ public class PE03_Control_Salut {
         
         switch (option) {
             case "a": // Introduir dades
+                j.nextLine(); // Neteja el buffer del next()
 
+                System.out.println("\nSisplau introdueix el teu nom:");
+                name = j.nextLine();
+
+                if (name.trim().equals("")) {
+                    System.out.println("Error: El nom no pot quedar buit!");
+                } else {
+                System.out.println("Sisplau introdueix la teva edat: ");
+                age = j.nextInt();
+                if (age >= 120)
+                {
+                    System.out.println("Error:");
+                }
+                System.out.println("Sisplau introdueix el teu pes: ");
+                weight = j.nextFloat();
+                System.out.println("Sisplau introdueix la teva alçada: ");
+                height = j.nextFloat();             
+                }
             case "b": //Modificar dades
             case "c": //Visualitzar dades
             default:
