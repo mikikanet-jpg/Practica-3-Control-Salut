@@ -10,23 +10,25 @@ public class PE03_Control_Salut {
        boolean sortida = false;
        float weight;
        String pesText = "";
+       String heightText = "";
+       Float height;
  
-        while (sortida = false)
+        while (!sortida) {
             System.out.println("\n Benvingut al programa sobre el control de la salut general fisica");
             System.out.println("Sisplau escull l'opcio que vols utilitzar: ");
             System.out.println("a) Introduir les dades");
             System.out.println("b) Modificar les dades");
             System.out.println("c) Visualitzar les dades");
             System.out.println("");                  
-            System.out.println("");
             option = j.next();
             
             switch (option) {
              case "a": // Introduir dades
              if (sortida = false)
                 j.nextLine(); // Neteja el buffer del next()
-
-                    System.out.println("\nSisplau introdueix el teu nom:");
+                j.nextLine(); // Neteja el buffer del next()
+                
+                    System.out.println("Sisplau introdueix el teu nom:");
                     name = j.nextLine();
 
                     if (name.trim().equals("")) {
@@ -45,19 +47,22 @@ public class PE03_Control_Salut {
                             if (weight <= 0 || weight > 400) {
                                 System.out.println("Error: El pes ha de ser un decimal positiu raonable.");
                             } else {
-                                    System.out.println("Sisplau introdueix la teva alçada (m): ");   
-                                    try {
-                                    float height = j.nextFloat();
-
+                                try {
+                                heightText = j.next().replace(",", ".");
+                                height = Float.parseFloat(heightText);
+                                j.nextLine(); // neteja buffer
                                     if (height < 0.5 || height > 2.5) {
-                                        System.out.println("Error: L'alçada ha de ser un decimal positiu entre 0.5 i 2.5 metres.");
-                                    } else {}
-                                    } catch (InputMismatchException e) {
-                                        System.out.println("Error: Format numèric invàlid.");
+                            System.out.println("Error: L'alçada ha de ser un decimal positiu entre 0.5 i 2.5 metres.");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Error: Format numèric invàlid.");
+                        j.nextLine(); // neteja buffer
+                    }
+                
                                     }        
                             }
                         }
-                    }
+                        break;
                 case "b": //Modificar dades
                 if (sortida = false)
                     
@@ -87,7 +92,11 @@ public class PE03_Control_Salut {
                             j.nextLine();
                         break;
                         case 4:
-                            System.out.println("Nova alçada (m)");
+                            System.out.println(" Nova alçada (m)");
+                            heightText = j.next().replace(",", ".");
+                            height = Float.parseFloat(heightText);
+                            j.nextLine();
+                        break;
                     }
                     
 
@@ -97,10 +106,9 @@ public class PE03_Control_Salut {
                 sortida = true;
                 System.out.println("Sortint del programa...");
                 default:
-                    break;
-                
-          }  
+                    break;}
         }
-    }
+    } 
+}
         
 
