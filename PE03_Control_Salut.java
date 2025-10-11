@@ -69,15 +69,19 @@ public class PE03_Control_Salut {
                 case "b": //Modificar dades
                     
                     j.nextLine(); //neteja de buffer
-
-                    System.out.println("Escull quina dada vols modificar:");
+                   
+                    System.out.println("--- Dades actuals ---");
+                    System.out.println("Nom: " + name);
+                    System.out.println("Edat: " + age);
+                    System.out.println("Pes: " + weight + " kg");
+                    System.out.println("Alçada: " + height + " m");
+                    System.out.println("\nEscull quina dada vols modificar:");
                     System.out.println("1. Nom");
                     System.out.println("2. Edat");
                     System.out.println("3. Pes (kg)");
                     System.out.println("4. Alçada (m)");
                     int opcioMod = j.nextInt();
                     j.nextLine();
-
                     switch (opcioMod) {
                         case 1:
                             System.out.println("Nou nom: ");
@@ -103,13 +107,40 @@ public class PE03_Control_Salut {
                     
 
                 case "c": //Visualitzar dades
-                    {   
-                        System.out.println("---Dades Introduides---");
-                        System.out.println("Nom: " + name);
-                        System.out.println("Edat: " + age);
-                        System.out.println("Pes: " + weight + " kg");
-                        System.out.println("Alçada: " + height + " m");
+                    if (name.equals("") || age == 0 || weight == 0 || height == 0) {
+                        System.out.println(" Primer has d'introduir totes les dades (opció a)");
+                        break;
                     }
+
+                    //Normalitzar nom (aqui m'ajudat el chatgpt)
+                    name = name.trim();
+                    name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+                    
+                    //Calcula IMC
+                    float imc = weight / (height * height);
+                    String Categoria;
+                    if (imc < 18.5) {
+                        Categoria ="Pes baix";
+                    } else if (imc < 25) {
+                        Categoria = "Pes normal";
+                    } else if (imc < 30) {
+                        Categoria = "Sobrepès";
+                    } else {
+                        Categoria = "Obesitat";
+                    }
+
+                    //Freqüencia cardíaca màxima
+                    int fcMax = 220 - age;
+                    int fc50 = (int)(fcMax * 0.5);
+                    int fc85 = (int)(fcMax * 0.85);
+
+                    //Aigua recomenada (litres)
+                    float litres = (weight * 35)/ 1000;
+
+                    //Any de naixement
+                    int anyNaix = 2025 - age;
+
+
                     break;
                 case "x": //sortida del bucle
                 sortida = true;
