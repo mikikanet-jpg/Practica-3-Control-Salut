@@ -140,13 +140,24 @@ public class PE03_Control_Salut {
                     //Any de naixement
                     int anyNaix = 2025 - age;
 
-
+                    //Mostrar resultats
+                    System.out.println("\nHola " + name + "!");
+                    System.out.println("Edat: " + age + " anys | Pes:" + weight + " kg | Alçada: " + height + " m");
+                    System.out.println("IMC: " + imc + " (" + Categoria + ")");
+                    System.out.println("FC màxima estimada: " + fcMax + " bpm");
+                    System.out.println("Zona FC objectiu: " + fc50 + " - " + fc85 + " bpm");
+                    System.out.println("Aigua recomenada: " + litres + " L/dia");
+                    System.out.println("Any de naixement aprox: " + anyNaix);
                     break;
+
                 case "x": //sortida del bucle
                 sortida = true;
                 System.out.println("Sortint del programa...");
+                break;
+
                 default:
-                    break;}
+                    System.out.println("Opció no valida!");
+            }
         }
     } 
 }
