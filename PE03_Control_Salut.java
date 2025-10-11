@@ -4,14 +4,15 @@ import java.util.Scanner;
 public class PE03_Control_Salut {
     public static void main(String[] args) {
        Scanner j = new Scanner(System.in);
+       // Variables inicialitzades perquè es puguin llegir abans o després
        String option;
-       String name;
-       int age;
+       String name = " ";
+       int age = 0;
        boolean sortida = false;
-       float weight;
+       float weight = 0.0f;
        String pesText = "";
        String heightText = "";
-       Float height;
+       Float height = 0.0f;
  
         while (!sortida) {
             System.out.println("\n Benvingut al programa sobre el control de la salut general fisica");
@@ -19,16 +20,16 @@ public class PE03_Control_Salut {
             System.out.println("a) Introduir les dades");
             System.out.println("b) Modificar les dades");
             System.out.println("c) Visualitzar les dades");
+            System.out.println("x) Sortir del programa");
             System.out.println("");                  
             option = j.next();
             
             switch (option) {
              case "a": // Introduir dades
-             if (sortida = false)
                 j.nextLine(); // Neteja el buffer del next()
-                j.nextLine(); // Neteja el buffer del next()
-                
-                    System.out.println("Sisplau introdueix el teu nom:");
+
+                    // Introduir dades (llegim tot amb nextLine per evitar problemes de buffer)
+                    System.out.println("Sisplau introdueix el teu nom complert:");
                     name = j.nextLine();
 
                     if (name.trim().equals("")) {
@@ -47,6 +48,7 @@ public class PE03_Control_Salut {
                             if (weight <= 0 || weight > 400) {
                                 System.out.println("Error: El pes ha de ser un decimal positiu raonable.");
                             } else {
+                                System.out.println("Sisplau introdueix la teva alçada: ");
                                 try {
                                 heightText = j.next().replace(",", ".");
                                 height = Float.parseFloat(heightText);
@@ -58,13 +60,13 @@ public class PE03_Control_Salut {
                         System.out.println("Error: Format numèric invàlid.");
                         j.nextLine(); // neteja buffer
                     }
+                        System.out.println("Dades introduides correctament!");
                 
                                     }        
                             }
                         }
                         break;
                 case "b": //Modificar dades
-                if (sortida = false)
                     
                     j.nextLine(); //neteja de buffer
 
@@ -101,7 +103,14 @@ public class PE03_Control_Salut {
                     
 
                 case "c": //Visualitzar dades
-
+                    {   
+                        System.out.println("---Dades Introduides---");
+                        System.out.println("Nom: " + name);
+                        System.out.println("Edat: " + age);
+                        System.out.println("Pes: " + weight + " kg");
+                        System.out.println("Alçada: " + height + " m");
+                    }
+                    break;
                 case "x": //sortida del bucle
                 sortida = true;
                 System.out.println("Sortint del programa...");
