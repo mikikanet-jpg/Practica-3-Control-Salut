@@ -142,11 +142,11 @@ public class PE03_Control_Salut {
 
                     //Mostrar resultats
                     System.out.println("\nHola " + name + "!");
-                    System.out.println("Edat: " + age + " anys | Pes:" + weight + " kg | Alçada: " + height + " m");
-                    System.out.println("IMC: " + imc + " (" + Categoria + ")");
+                    System.out.printf("Edat: %d anys | Pes: %.2f kg | Alçada: %.2f m\n", age, weight, height);
+                    System.out.printf("IMC: %.2f (%s)\n", imc, Categoria);
                     System.out.println("FC màxima estimada: " + fcMax + " bpm");
                     System.out.println("Zona FC objectiu: " + fc50 + " - " + fc85 + " bpm");
-                    System.out.println("Aigua recomenada: " + litres + " L/dia");
+                    System.out.printf("Aigua recomenada: %.2f L/dia\n", litres);
                     System.out.println("Any de naixement aprox: " + anyNaix);
                     break;
 
